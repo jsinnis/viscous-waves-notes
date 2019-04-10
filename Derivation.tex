@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+ \usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{array}
+\usepackage{pmgraph}
+\usepackage[normalem]{ulem}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\pagestyle{fancy}
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+
+
+\usepackage{tikz}
+\usepackage{physics}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\def\firstcircle{(90:1.75cm) circle (2.5cm)}
+  \def\secondcircle{(210:1.75cm) circle (2.5cm)}
+  \def\thirdcircle{(330:1.75cm) circle (2.5cm)}
+\usepackage{booktabs} % for "\midrule" macro
+\usepackage{lipsum} % for filler text
+\pagestyle{fancy}
+
+\newcommand{\NN}{\mathbb{N}}              % Natural numbers
+\newcommand{\QQ}{\mathbb{Q}}              % Rationals
+\newcommand{\RR}{\mathbb{R}}              % Reals
+\newcommand{\ZZ}{\mathbb{Z}}              % Integers
+\newcommand{\powerset}{\mathcal{P}}       % power set
+\newcommand{\setcomp}[1]{\overline{#1}}   % set complement
+\newcommand{\negate}{{\sim}}              % negation (logic)
+\newcommand{\xor}{\oplus}                 % xor
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\pagestyle{fancy}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Viscous water waves}
+\author{James Sinnis}
+\date{April 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Derivation of surface height and velocity potential functions}
+
+The PDE is $$\nabla ^2\phi = 0$$
+with boundary conditions
+
+$$(i) \indent \frac{\partial{\eta}}{\partial{t}} - \frac{\partial{\phi}}{\partial{z}} - 2\nu \frac{\partial^2{\eta}}{\partial{x^2}} = 0$$
+
+$$(ii) \indent \pdv{\phi}{t} + g\eta -2\nu \pdv[2]{\phi}{x}=0$$
+
+$$(iii)\indent \pdv{\phi}{z} = 0 \text{\indent as z} \xrightarrow{} -\infty$$
+
+\noindent with (i) and (ii) at the surface (z=0).
+
+\\\vspace{2mm} We recognize that the z and x dependence of $\phi$ is separable, and we postulate that $\eta$ takes the form of a propagating cosine:
+
+$$\eta(x,t) = A\cos{(kx - \omega t)} = A\cos{\theta}$$
+
+This leads to $\phi$ taking the form:
+
+$$\phi(x,z,t) = e^{kz} (C\sin{\theta} + D\cos{\theta})$$
+
+where $\theta = kx - \omega t$. Using $(ii)$ we can find the values of $C$ and $D$ in terms of the initial amplitude $A$:
+
+$$C = \frac{g\omega}{\omega^2+4\nu^2k^4} A$$
+$$D = -\frac{2\nu^2k^2g}{\omega^2+4\nu^2k^4} A$$
+\end{document}
